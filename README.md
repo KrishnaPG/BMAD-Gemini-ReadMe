@@ -59,3 +59,13 @@ Once the project brief is edited manually to suit your needs, in the **Gemini CL
   ```
   - This uses the brief as input (automatically loaded by @pm).
   - Produces a full `docs/prd.md` with functional & non-functional requirements, epics, and assumptions scaffolded.
+  - **Manually** edit it as you need, without changing its structure.
+
+## 7. Architecture
+Once the PRD is edited manually to suit your needs, in the **Gemini CLI**, enter the below prompt:
+  ```
+    @architect *create-doc fullstack-architecture-tmpl.yaml ./docs/architecture.md
+  ```
+Alternately, the PRD may also contain the next steps and the prompts to run the architect.
+  - This uses the PRD as input and produces the `docs/architecture.md`.
+  - **Manually** edit it as you need, without changing its structure.
