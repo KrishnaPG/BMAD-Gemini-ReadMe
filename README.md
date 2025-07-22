@@ -45,9 +45,17 @@ The project brief needs to be in a specified format for the BMAD to work. In the
     @analyst *create-doc project-brief-tmpl.yaml ./docs/brief.md
   ```
   - This creates a structured `docs/brief.md` with required sections.
-  - Edit this file to reflect your actual project goals, market context, etc.
+  - **Manually** edit this file to reflect your actual project goals, market context, etc. without changing its structure.
 
 ----------
 **Very Important**: When Gemini asks your permission to create/change or write to files, make sure you select **allow once** only. Never give full permissions to an AI to make changes to your file system. NEVER.
 
 ----------
+
+## 6. Generate PRD from Brief
+Once the project brief is edited manually to suit your needs, in the **Gemini CLI**, enter the below prompt:
+  ```
+    @pm *create-doc prd-tmpl.yaml ./docs/prd.md 
+  ```
+  - This uses the brief as input (automatically loaded by @pm).
+  - Produces a full `docs/prd.md` with functional & non-functional requirements, epics, and assumptions scaffolded.
