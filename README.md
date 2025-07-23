@@ -69,3 +69,31 @@ Once the PRD is edited manually to suit your needs, in the **Gemini CLI**, enter
 Alternately, the PRD may also contain the next steps and the prompts to run the architect.
   - This uses the PRD as input and produces the `docs/architecture.md`.
   - **Manually** edit it as you need, without changing its structure.
+
+## 8. Shard the PRD and Architecture
+After the Architect has created the `docs/architecture.md` and you have manually edited to suit your needs, in the **Gemini CLI**, enter the below prompts:
+  ```
+    @bmad-master *shard-doc docs/prd.md docs/prd
+  ```
+followed by
+  ```
+    @bmad-master *shard-doc docs/architecture.md docs/architecture 
+  ```
+Check that these below files exist and are meaningful:
+```
+  docs/architecture/coding-standards.md
+  docs/architecture/tech-stack.md
+  docs/architecture/source-tree.md
+```
+----------
+**Safe Usage Tips**:
+
+  - ❌ Do not re-run the `@architect *create-doc ...` command unless you are okay with losing edits in architecture.md.
+
+  - ✅ If you want to regenerate a missing section in the `docs/architecture.md`, it's better to copy from the template manually or restore specific parts.
+
+  - ✅ If you are just missing devLoadAlwaysFiles (configured in `core-config.yaml`), manually create only those files by copying from the [templates](templates/) folder in this repo.
+
+
+----------
+
