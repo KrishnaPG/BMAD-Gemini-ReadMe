@@ -97,3 +97,19 @@ Check that these below files exist and are meaningful:
 
 ----------
 
+## 9. Validate the Architecture Document
+Optionally, you can run the below prompt in the **Gemini CLI** to have architect do validation of the architecture. 
+  ```
+   @architect *execute-checklist architect-checklist.md
+  ```
+  - The above command generates a report, but by default it does NOT **save to disk**.
+  - You have to manuallly enter a prompt to save the report to disk in a path similar to: `docs/validation/architect-checklist-2025-07-23.md`
+  - Commit it to Git for future audits:
+    ```
+      git add docs/validation/architect-checklist-report-2025-07-23.md
+      git commit -m "Add architecture validation checklist report"
+    ```
+  - Next, you can ask the Architect to work on the checklist report to resolve any pending items, using the below prompt:
+    ```
+    @architect Review the checklist report at docs/validation/architect-checklist-2025-07-23.md and fill any unresolved ❌ items by updating the appropriate architecture files. Confirm each update in the same report.
+    ```
