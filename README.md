@@ -115,18 +115,22 @@ Optionally, you can run the below prompt in the **Gemini CLI** to have architect
     ```
 
 ## 10. Initiate Development: SM → Dev → QA loop
-  - **Create the First Story** (❗ use new Gemini chat session for clean context):
+  - **Create the First Story** (use new Gemini chat session for clean context):
     ```
       @sm *create-next-story ./ docs/stories/story-1.0.md  # generate first story from PRD + architecture
+    ```
+    or alternately you can skip the filename and the next one in sequence will be automatically generated:
+    ```
+      @sm *create-next-story ./ docs/stories/  # auto-generate next story in sequence
     ```
   - **Approve the Story**:
     - Manually review story file (story-1.0.md)
     - Update status from `Draft` → `Approved`
-  - **Develop the Story** (❗ new chat session):
+  - **Develop the Story** (new chat session):
     ```
       @dev Implement this story docs/stories/story-1.0.md 
     ```
-  - **Run QA Review** (❗ new chat session):
+  - **Run QA Review** (new chat session):
     ```
       @qa *review-story docs/stories/story-1.0.md docs/qa-reports/story-1.0-review.md
     ```
