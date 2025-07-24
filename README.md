@@ -113,3 +113,21 @@ Optionally, you can run the below prompt in the **Gemini CLI** to have architect
     ```
     @architect Review the checklist report at docs/validation/architect-checklist-2025-07-23.md and fill any unresolved ❌ items by updating the appropriate architecture files. Confirm each update in the same report.
     ```
+
+## 10. Initiate Development: SM → Dev → QA loop
+  - **Create the First Story** (❗ use new Gemini chat session for clean context):
+    ```
+      @sm *create-next-story ./ docs/stories/story-1.0.md  # generate first story from PRD + architecture
+    ```
+  - **Approve the Story**:
+    - Manually review story file (story-1.0.md)
+    - Update status from `Draft` → `Approved`
+  - **Develop the Story** (❗ new chat session):
+    ```
+      @dev Implement this story docs/stories/story-1.0.md 
+    ```
+  - **Run QA Review** (❗ new chat session):
+    ```
+      @qa *review-story docs/stories/story-1.0.md docs/qa-reports/story-1.0-review.md
+    ```
+  - Monitor `docs/stories/` for progress tracking and status alignment
