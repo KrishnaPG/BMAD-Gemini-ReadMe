@@ -134,9 +134,10 @@ Optionally, you can run the below prompt in the **Gemini CLI** to have architect
     ```
       @qa *review-story docs/stories/story-1.0.md docs/qa-reports/story-1.0-review.md
     ```
+    After QA verifies and approves the code, repeat the cycle (in a new chat sessions) by creating next story.
   - Monitor `docs/stories/` for progress tracking and status alignment
 
-## 11. Continue Development
+## 11. Continue Implementation after a manual code overwrite
   - If you do not like what the `dev` produced and rather manually edited something, then use the below **GeminiCLI prompt** to continue:
     ```
       @dev Continue implementing this story docs/stories/1.1.story.md from the current project state   # Preserves manual edits
