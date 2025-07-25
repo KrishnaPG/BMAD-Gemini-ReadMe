@@ -123,27 +123,38 @@ Optionally, you can run the below prompt in the **Gemini CLI** to have architect
     ```
       @sm *create-next-story ./ docs/stories/  # auto-generate next story in sequence
     ```
+    After a story is created it goes through different status as below:
+    ```less
+    Draft   →  Approved   →  InProgress   →   Review   →   Done
+             (@po / @sm)      (@dev)          (@dev)     (@po / @sm)
+    ```
   - **Approve the Story**:
-    - Manually review story file (e.g. `docs/1.1.story.md`)
-    - Update status from `Draft` → `Approved`
-   
-    Additionally the created story can be validated with below prompt:
+    
+    The newly created story can be validated with below prompt:
     ```
       @po *validate-next-story docs/stories   # PO approves next story for development
     ```
+    Alternately, you can also do:
+      - Manually review story file (e.g. `docs/1.1.story.md`)
+      - Update status from `Draft` → `Approved`
   - **Develop the Story** (new chat session):
     ```
       @dev Implement this story docs/stories/1.1.story.md 
+    ```
+    If you do not like what the `dev` produced and rather manually edited something, then use the below prompt to continue:
+    ```
+      @dev Continue implementing this story docs/stories/1.1.story.md from the current project state   # Preserves manual edits
     ```
   - **Run QA Review** (new chat session):
     ```
       @qa *review-story docs/stories/1.1.story.md
     ```
-    After QA verifies and approves the code, repeat the cycle (in a new chat sessions) by creating next story.
+  - **Mark the Story as Done**:
+
+    After QA verifies and validate the code quaity, use the below prompt to conclude the story:
+    ```
+    @po *execute-checklist story-dod-checklist.md docs/stories/1.1.story.md
+    ```
+  - Repeat this cycle (in a new chat sessions) by creating the next story.
   - Monitor `docs/stories/` for progress tracking and status alignment
 
-## 11. Continue Implementation after a manual code overwrite
-  - If you do not like what the `dev` produced and rather manually edited something, then use the below **GeminiCLI prompt** to continue:
-    ```
-      @dev Continue implementing this story docs/stories/1.1.story.md from the current project state   # Preserves manual edits
-    ```
