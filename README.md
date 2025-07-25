@@ -135,3 +135,9 @@ Optionally, you can run the below prompt in the **Gemini CLI** to have architect
       @qa *review-story docs/stories/story-1.0.md docs/qa-reports/story-1.0-review.md
     ```
   - Monitor `docs/stories/` for progress tracking and status alignment
+
+## 11. Continue Development
+  - If you do not like what the `dev` produced and rather manually edited something, then use the below **GeminiCLI prompt** to continue:
+    ```
+      @dev Continue implementing this story docs/stories/1.1.story.md from the current project state   # Preserves manual edits
+    ```
