@@ -124,8 +124,13 @@ Optionally, you can run the below prompt in the **Gemini CLI** to have architect
       @sm *create-next-story ./ docs/stories/  # auto-generate next story in sequence
     ```
   - **Approve the Story**:
-    - Manually review story file (story-1.0.md)
+    - Manually review story file (e.g. `docs/1.1story.md`)
     - Update status from `Draft` → `Approved`
+   
+    Additionally the created story can be validated with below prompt:
+    ```
+      @po *validate-next-story docs/stories   # PO approves next story for development
+    ```
   - **Develop the Story** (new chat session):
     ```
       @dev Implement this story docs/stories/story-1.0.md 
